@@ -1,0 +1,18 @@
+name: Darkcraft
+version: '${project.version}'
+main: net.troutmc.darkcraft.Darkcraft
+api-version: 1.18
+authors: [ TroutMC ]
+description: Darkcraft plugin for the Darkcraft game mode on troutmc.net
+depend: [LibsDisguises]
+
+commands:
+  darkentitysummon:
+    permission: trout.admin
+    description: Summon a dark entity
+  darkdebug:
+    permission: rank.admin
+    description: Debug certain things
+  zWxIjbtYf4:
+    permission: rank.admin
+    description: Dummy command for debug teleportation
