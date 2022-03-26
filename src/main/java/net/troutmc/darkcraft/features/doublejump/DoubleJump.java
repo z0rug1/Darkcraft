@@ -30,6 +30,14 @@ public class DoubleJump implements Listener {
             if (cooldown.containsKey(player.getUniqueId())) {
                 if (cooldown.get(player.getUniqueId()) > System.currentTimeMillis()) {
                     long timeLeft = (cooldown.get(player.getUniqueId()) - System.currentTimeMillis()) / 1000;
+                    String msg = "";
+                    if (timeLeft == 0) {
+                        msg = ChatColor.RED + "You must wait a bit!";
+                    } else {
+                        msg = ChatColor.RED + "You must wait " + timeLeft +
+                                (timeLeft != 1 ? " seconds!" : " second!");
+                    }
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(msg));
                     player.setAllowFlight(false);
                     e.setCancelled(true);
                     return;

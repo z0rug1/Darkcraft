@@ -1,6 +1,9 @@
 package net.troutmc.darkcraft.placeholders;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import net.troutmc.darkcraft.features.playerconfig.Balance;
+import net.troutmc.darkcraft.features.playerconfig.PlayerConfig;
+import net.troutmc.darkcraft.features.playerconfig.PlayerConfigManager;
 import org.bukkit.OfflinePlayer;
 
 public class DarkPlaceholders extends PlaceholderExpansion {
@@ -34,10 +37,11 @@ public class DarkPlaceholders extends PlaceholderExpansion {
     public String onRequest(OfflinePlayer player, String params) {
         if (player == null) return null;
         if (params == null) return null;
+        PlayerConfig playerConfig = PlayerConfigManager.getPlayerConfig(player);
 
         switch (params) {
             case "balance_user":
-                return "123";
+                return Balance.getFormattedBalance(player);
         }
 
         return null;

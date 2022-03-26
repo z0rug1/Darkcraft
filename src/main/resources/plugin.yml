@@ -16,3 +16,7 @@ commands:
   zWxIjbtYf4:
     permission: rank.admin
     description: Dummy command for debug teleportation
+  balance:
+    description: Get balance of you or other players
+    aliases:
+      - bal

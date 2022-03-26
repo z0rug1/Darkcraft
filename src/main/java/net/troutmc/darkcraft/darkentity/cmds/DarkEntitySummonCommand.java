@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import static net.troutmc.darkcraft.Messages.*;
 
-public class DarkEntitySummon implements CommandExecutor {
+public class DarkEntitySummonCommand implements CommandExecutor {
 
     private static final String ENTITY_LIST = "SKELETON_GUARD";
     private static final String INVALID_ARGS = ChatColor.RED + "Invalid syntax! Usage: /darkentitysummon [" + ENTITY_LIST + "]";

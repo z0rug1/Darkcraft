@@ -174,6 +174,12 @@ public class ThePrison extends DarkWorld implements Listener {
         for (LivingEntity livingEntity : list) {
             boolean exists = false;
             for (LivingEntity e : world().getLivingEntities()) {
+                if (e instanceof Zombie) {
+                    if (!entityListSec1.contains(e) && !entityListSec2.contains(e)) {
+                        e.remove();
+                    }
+                }
+
                 if (e.getUniqueId().toString().equals(livingEntity.getUniqueId().toString())) {
                     exists = true;
                     break;

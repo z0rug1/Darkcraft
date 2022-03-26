@@ -1,6 +1,7 @@
 package net.troutmc.darkcraft;
 
-import net.troutmc.darkcraft.darkentity.cmds.DarkEntitySummon;
+import net.troutmc.darkcraft.darkentity.cmds.BalanceCommand;
+import net.troutmc.darkcraft.darkentity.cmds.DarkEntitySummonCommand;
 import net.troutmc.darkcraft.darkentity.cmds.DebugCommand;
 import net.troutmc.darkcraft.darkentity.cmds.zWxIjbtYf4;
 import net.troutmc.darkcraft.darkentity.entities.skeletonguard.SkeletonGuard;
@@ -26,7 +27,7 @@ public final class Darkcraft extends JavaPlugin {
         thePrison = new ThePrison();
         File file = new File(getDataFolder() + "/playerData");
         boolean playerDataDirResult = file.mkdirs();
-        if (!playerDataDirResult) {
+        if (!playerDataDirResult && !file.exists()) {
             getLogger().severe("FAILED TO CREATE CRUCIAL PLAYER DATA DIRECTORY. SERVER CLOSING...");
             getServer().shutdown();
         }
@@ -35,7 +36,7 @@ public final class Darkcraft extends JavaPlugin {
             getServer().shutdown();
         }
 
-        getCommand("darkentitysummon").setExecutor(new DarkEntitySummon());
+        getCommand("darkentitysummon").setExecutor(new DarkEntitySummonCommand());
         getServer().getPluginManager().registerEvents(new FoodLevelChange(), this);
         getServer().getPluginManager().registerEvents(new FirstJoin(), this);
         getServer().getPluginManager().registerEvents(new PlayerRespawn(), this);
@@ -51,6 +52,7 @@ public final class Darkcraft extends JavaPlugin {
         startRunnables();
         getCommand("darkdebug").setExecutor(new DebugCommand());
         getCommand("zWxIjbtYf4").setExecutor(new zWxIjbtYf4());
+        getCommand("balance").setExecutor(new BalanceCommand());
         new DarkPlaceholders().register();
     }
 
